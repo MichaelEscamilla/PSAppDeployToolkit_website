@@ -13,16 +13,30 @@ tags:
 # Upgrade Guidance: v4 to v4.1
 
 ## Breaking Changes in v4.1
-
+### DeployMode
 :::warning
 - `DeployMode` now defaults to a new mode `Auto`, which defaults to interactive but reverts to silent if the device is in OOBE/ESP phases, there is no user logged on, or there are no processes to close.
-- `OOBEDetection` and `SessionDetection` are no longer set in Config.psd1. They can be set per-deployment by adding the `NoOOBEDetection` and `NoSessionDetection` options to the session properties if required.
-- `AppProcessesToClose` is a new session property that allows you to define processes to close during Install/Uninstall/Repair in one place instead of specifying the processes directly on the `-CloseProcesses` parameter of `Show-ADTInstallationWelcome`.
+:::
+### RequireAdmin
+:::warning
 - `RequireAdmin` is no longer set in Config.psd1. It must be set per-deployment in the session properties.
+:::
+### AppProcessesToClose
+:::warning
+- `AppProcessesToClose` is a new session property that allows you to define processes to close during Install/Uninstall/Repair in one place instead of specifying the processes directly on the `-CloseProcesses` parameter of `Show-ADTInstallationWelcome`.
+:::
+### OOBEDetection & SessionDetection
+:::warning
+- `OOBEDetection` and `SessionDetection` are no longer set in Config.psd1. They can be set per-deployment by adding the `NoOOBEDetection` and `NoSessionDetection` options to the session properties if required.
+:::
+### Config.psd1
+:::warning
 - Several config options have been removed or had their default values changed. See below for details.
+:::
+### Upcoming Changes
+:::warning
 - Deprecated functions and parameters are scheduled for removal in 4.2.0. Update your scripts accordingly.
 :::
-
 ## Updating an Existing v4.0 Deployment to v4.1
 
 For patch releases (e.g. v4.0.5 to v4.0.6), all that is normally required is to replace the PSAppDeployToolkit folder within the package.
